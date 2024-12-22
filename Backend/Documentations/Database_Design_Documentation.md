@@ -105,3 +105,5 @@ This table manages collaborations between users and projects.
 ### **3. Skills and User Skills**
 
 - **One-to-Many with `user_skills`:** Skills can be linked to multiple users.
+
+  
