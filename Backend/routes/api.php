@@ -18,4 +18,5 @@ Route::middleware(['role:admin'])->group(function () {
 // Customer-only route
 Route::middleware(['role:user'])->group(function () {
     Route::get('/user/dashboard', [UserController::class, 'dashboard']);
+    Route::post('/user/profile-update', [UserController::class, 'updateProfile']);
 });

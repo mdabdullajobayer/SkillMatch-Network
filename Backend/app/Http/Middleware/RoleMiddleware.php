@@ -21,9 +21,11 @@ class RoleMiddleware
 
         if (is_string($decoded)) { // Unauthorized message returned
             return response()->json(['error' => $decoded], 403);
+        } else {
+            $request->headers->set('email', $decoded->UserEmail);
+            $request->headers->set('id', $decoded->userId);
+            // Proceed with request
+            return $next($request);
         }
-
-        // Proceed with request
-        return $next($request);
     }
 }
