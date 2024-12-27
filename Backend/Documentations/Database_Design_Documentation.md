@@ -117,3 +117,5 @@ This table represents the many-to-many relationship between projects and skills.
 ### **3. Skills and User Skills**
 
 - **One-to-Many with `user_skills`:** Skills can be linked to multiple users.
+
+  

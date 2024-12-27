@@ -45,7 +45,7 @@
 
 #### **Database:**
 
-- **Primary**: PostgreSQL or MySQL (for structured data)
+- **Primary**: MySQL (for structured data)
 #### **APIs:**
 
 - RESTful APIs for communication between the frontend and backend.
