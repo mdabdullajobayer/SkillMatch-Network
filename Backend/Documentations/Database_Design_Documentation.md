@@ -89,6 +89,18 @@ This table manages collaborations between users and projects.
 
 ---
 
+### **6. `project_skill` Table**
+
+This table represents the many-to-many relationship between projects and skills.
+|Field Name|Type|Attributes|Description|
+|---|---|---|---|
+|`id`|`bigint`|Primary Key, Auto Increment|Unique identifier for each collaboration.|
+|`project_id`|`bigint`|Foreign Key|References the `id` field in the `projects` table.|
+|`skill_id` |`bigint`|Foreign Key|References the `id` field in the `skills` table.|
+|`created_at`|`timestamp`|Default: current timestamp|Record creation timestamp.|
+|`updated_at`|`timestamp`|Default: current timestamp|Record last update timestamp.|
+
+
 ## **Relationships**
 
 ### **1. User Relationships**
