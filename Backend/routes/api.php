@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\UserAuthController;
+use App\Http\Controllers\CollaborationController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\User\UserController;
 use App\Models\User;
@@ -23,4 +24,8 @@ Route::middleware(['role:user'])->group(function () {
     Route::post('/user/profile-update', [UserController::class, 'updateProfile']);
     Route::resource('user/projects', ProjectController::class);
     Route::get('feed', [UserController::class, 'feed']);
+    Route::get('colloboration', [CollaborationController::class, 'createCollaboration']);
+    Route::post('accept-collaboration', [CollaborationController::class, 'acceptCollaboration']);
+    Route::post('reject-collaboration', [CollaborationController::class, 'rejectCollaboration']);
+    Route::get('collaborators/{projectId}', [CollaborationController::class, 'getCollaborators']);
 });
