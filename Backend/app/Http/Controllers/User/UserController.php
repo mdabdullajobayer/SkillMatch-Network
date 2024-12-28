@@ -10,6 +10,7 @@ class UserController extends Controller
 {
     private $userService;
 
+
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
@@ -45,5 +46,11 @@ class UserController extends Controller
                 'message' => $e->getMessage(),
             ], 400);
         }
+    }
+
+    public function feed(Request $request)
+    {
+        $userId = $request->header('id');
+        return $this->userService->getFeed($userId);
     }
 }
