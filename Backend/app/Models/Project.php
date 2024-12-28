@@ -28,4 +28,9 @@ class Project extends Model
     {
         return $this->hasMany(Collaboration::class);
     }
+
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'project_skill');
+    }
 }

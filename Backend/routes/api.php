@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\UserAuthController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,5 @@ Route::middleware(['role:admin'])->group(function () {
 Route::middleware(['role:user'])->group(function () {
     Route::get('/user/dashboard', [UserController::class, 'dashboard']);
     Route::post('/user/profile-update', [UserController::class, 'updateProfile']);
+    Route::resource('user/projects', ProjectController::class);
 });
