@@ -49,6 +49,11 @@ class UserAuthController extends Controller
                     'massage' => 'Login Failed. Invalid credentials.',
                 ], 401);
             }
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'massage' => 'Login Failed. Invalid credentials.',
+            ], 401);
         }
     }
     // Logout Method This Method Receive Get Request
