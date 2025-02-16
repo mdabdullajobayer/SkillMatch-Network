@@ -59,6 +59,6 @@ class UserAuthController extends Controller
     // Logout Method This Method Receive Get Request
     public function logout()
     {
-        return redirect('user-login')->cookie('token', '', -1);
+        return cookie('token', '', -1);
     }
 }

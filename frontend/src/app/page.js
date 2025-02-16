@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import LoginForm from "./components/LoginForm";
 import { loginUser } from "./services/login_api";
 import { useRouter } from 'next/navigation';
+import Cookies from "js-cookie";
+import toast from "react-hot-toast";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -21,16 +23,15 @@ export default function Home() {
     try {
       const data = await loginUser(email, password);
       if (data.token) {
-        setSuccess("Login successful.");
-        localStorage.setItem("authToken", data.token);
+        toast.success("Login successful!");
+        Cookies.set("authToken", data.token, { expires: 1 });
         setTimeout(() => {
           push("/dashboard");
         }, 1000);
       }
     } catch (err) {
       console.error("Login failed:", err);
-      setError(err.message);
-      setLoading(false);
+      toast.error("Login failed:", err.message);
     } finally {
       setLoading(false);
     }
